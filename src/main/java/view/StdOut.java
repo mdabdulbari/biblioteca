@@ -1,4 +1,7 @@
 package view;
 
-interface StdOut {
+public class StdOut {
+    public void print(String string) {
+        System.out.println(string);
+    }
 }
