@@ -20,6 +20,7 @@ public class InitializeApplication {
     }
 
     private void printBookTitles() {
+        stdOut.print("---Here are all the books in the library---");
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
         List<String> bookTitles = library.getTitles();
