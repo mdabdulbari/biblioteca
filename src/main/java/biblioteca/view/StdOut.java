@@ -1,4 +1,4 @@
-package view;
+package biblioteca.view;
 
 public class StdOut {
     public void print(String string) {

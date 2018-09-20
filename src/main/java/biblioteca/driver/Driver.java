@@ -1,6 +1,6 @@
-package driver;
+package biblioteca.driver;
 
-import view.StdOut;
+import biblioteca.view.StdOut;
 
 public class Driver {
     public static void main(String[] args) {
