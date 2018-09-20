@@ -11,6 +11,6 @@ class BookTest {
     @Test
     void shouldReturnGameOfThronesString() {
         Book gameOfThrones = new Book("Game Of Thrones");
-        assertEquals("Game Of Thrones", gameOfThrones.toString());
+        assertEquals("Game Of Thrones", gameOfThrones.getTitle());
     }
 }

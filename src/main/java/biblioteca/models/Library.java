@@ -11,6 +11,6 @@ public class Library {
     }
 
     public List<String> getTitles() {
-        return this.books.stream().map(Book::toString).collect(Collectors.toList());
+        return this.books.stream().map(Book::getTitle).collect(Collectors.toList());
     }
 }

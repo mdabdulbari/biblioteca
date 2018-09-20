@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="biblioteca.models.BookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-09-20T06:11:17" hostname="in-BariMohammed.local" time="0.007">
+  <properties/>
+  <testcase name="shouldReturnGameOfThronesString()" classname="biblioteca.models.BookTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
