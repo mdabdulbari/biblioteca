@@ -4,6 +4,8 @@ import biblioteca.Helpers;
 import biblioteca.models.Library;
 import biblioteca.view.StdOut;
 
+import java.util.List;
+
 public class InitializeApplication {
     private StdOut stdOut;
 
@@ -13,8 +15,14 @@ public class InitializeApplication {
 
     public void run() {
         stdOut.print("Welcome to biblioteca");
+        printBookTitles();
+
+    }
+
+    private void printBookTitles() {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
-        stdOut.print(library.toString());
+        List<String> bookTitles = library.getTitles();
+        bookTitles.forEach(book -> stdOut.print(book));
     }
 }
