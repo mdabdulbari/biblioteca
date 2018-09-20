@@ -4,6 +4,7 @@ import biblioteca.Helpers;
 import biblioteca.controller.InitializeApplication;
 import biblioteca.controller.MainMenu;
 import biblioteca.models.Library;
+import biblioteca.view.StdIn;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import biblioteca.view.StdOut;
@@ -20,8 +21,9 @@ class BibliotecaTest {
     @Test
     void shouldPrintWelcomeMessage() {
         StdOut stdOut = mock(StdOut.class);
+        StdIn stdIn = mock(StdIn.class);
         MainMenu mainMenu = mock(MainMenu.class);
-        InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
+        InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();
         verify(mainMenu).displayOptionsAndAskForOption();
     }

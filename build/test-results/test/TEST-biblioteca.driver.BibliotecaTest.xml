@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="biblioteca.driver.BibliotecaTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-09-20T06:44:12" hostname="in-BariMohammed.local" time="0.08">
+<testsuite name="biblioteca.driver.BibliotecaTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-09-20T16:34:06" hostname="in-BariMohammed.local" time="0.008">
   <properties/>
-  <testcase name="shouldPrintWelcomeMessage()" classname="biblioteca.driver.BibliotecaTest" time="0.076"/>
+  <testcase name="shouldPrintWelcomeMessage()" classname="biblioteca.driver.BibliotecaTest" time="0.004"/>
   <testcase name="shouldReturnListOfBooks()" classname="biblioteca.driver.BibliotecaTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

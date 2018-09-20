@@ -2,31 +2,34 @@ package biblioteca.controller;
 
 import biblioteca.Helpers;
 import biblioteca.models.Library;
+import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MainMenu {
     private List<String> options;
     private StdOut stdOut;
-    private Scanner scanner;
+    private StdIn stdIn;
 
-    MainMenu(StdOut stdOut) {
+
+    MainMenu(StdOut stdOut, StdIn stdIn) {
         this.stdOut = stdOut;
+        this.stdIn = stdIn;
         this.options = new ArrayList<>();
         options.add("1. List of Books");
-        scanner = new Scanner(System.in);
     }
 
     public void displayOptionsAndAskForOption() {
         options.forEach(option -> stdOut.print(option));
         stdOut.print("Please select an option: ");
-        int optionSelected = scanner.nextInt();
-        if(optionSelected == 1) {
+        int optionSelected = stdIn.takeInteger();
+        if (optionSelected == 1) {
             displayBooks();
+            return;
         }
+        stdOut.print("Select a valid option!");
     }
 
     private void displayBooks() {
@@ -39,3 +42,13 @@ public class MainMenu {
         bookTitles.forEach(book -> stdOut.print(book));
     }
 }
+
+
+
+
+
+
+
+
+
+
