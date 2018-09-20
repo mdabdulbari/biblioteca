@@ -2,6 +2,7 @@ package biblioteca.driver;
 
 import biblioteca.Helpers;
 import biblioteca.controller.InitializeApplication;
+import biblioteca.controller.MainMenu;
 import biblioteca.models.Library;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,9 +20,10 @@ class BibliotecaTest {
     @Test
     void shouldPrintWelcomeMessage() {
         StdOut stdOut = mock(StdOut.class);
-        InitializeApplication initializeApplication = new InitializeApplication(stdOut);
+        MainMenu mainMenu = mock(MainMenu.class);
+        InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
         initializeApplication.run();
-        verify(stdOut).print("Welcome to biblioteca");
+        verify(mainMenu).displayOptions();
     }
 
     @DisplayName("should return list of books")
