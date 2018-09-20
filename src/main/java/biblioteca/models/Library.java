@@ -10,7 +10,7 @@ public class Library {
         this.books = books;
     }
 
-    public List<String> getTitles() {
-        return this.books.stream().map(Book::getTitle).collect(Collectors.toList());
+    public List<String> getBookDetails() {
+        return this.books.stream().map(Book::getDetails).collect(Collectors.toList());
     }
 }

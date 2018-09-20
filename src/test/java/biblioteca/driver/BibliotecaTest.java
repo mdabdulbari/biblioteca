@@ -30,9 +30,9 @@ class BibliotecaTest {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
         List<String> bookTitles = new ArrayList<>();
-        bookTitles.add("I Hate");
-        bookTitles.add("Thiss");
-        bookTitles.add("Assignment");
-        assertEquals(bookTitles, library.getTitles());
+        bookTitles.add("I Hate      Abdul       2018");
+        bookTitles.add("Thiss      Bari       2018");
+        bookTitles.add("Assignment      Mohammad       2018");
+        assertEquals(bookTitles, library.getBookDetails());
     }
 }

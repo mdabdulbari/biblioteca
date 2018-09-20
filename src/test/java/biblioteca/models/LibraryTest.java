@@ -15,12 +15,12 @@ class LibraryTest {
     void shouldPrintThreeBooks() {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
-        List<String> books = new ArrayList<>();
+        List<String> bookDetails = new ArrayList<>();
 
-        books.add("I Hate");
-        books.add("Thiss");
-        books.add("Assignment");
+        bookDetails.add("I Hate      Abdul       2018");
+        bookDetails.add("Thiss      Bari       2018");
+        bookDetails.add("Assignment      Mohammad       2018");
 
-        assertEquals(books, library.getTitles());
+        assertEquals(bookDetails, library.getBookDetails());
     }
 }

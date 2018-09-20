@@ -15,15 +15,17 @@ public class InitializeApplication {
 
     public void run() {
         stdOut.print("Welcome to biblioteca");
-        printBookTitles();
+        displayBooks();
 
     }
 
-    private void printBookTitles() {
+    private void displayBooks() {
         stdOut.print("---Here are all the books in the library---");
+        stdOut.print("Book      Author      Year Published");
+        stdOut.print("------------------------------------");
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
-        List<String> bookTitles = library.getTitles();
+        List<String> bookTitles = library.getBookDetails();
         bookTitles.forEach(book -> stdOut.print(book));
     }
 }
