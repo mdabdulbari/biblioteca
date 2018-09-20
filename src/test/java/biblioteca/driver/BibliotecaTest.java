@@ -23,7 +23,7 @@ class BibliotecaTest {
         MainMenu mainMenu = mock(MainMenu.class);
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
         initializeApplication.run();
-        verify(mainMenu).displayOptions();
+        verify(mainMenu).displayOptionsAndAskForOption();
     }
 
     @DisplayName("should return list of books")

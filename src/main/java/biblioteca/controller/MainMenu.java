@@ -6,19 +6,27 @@ import biblioteca.view.StdOut;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainMenu {
     private List<String> options;
     private StdOut stdOut;
+    private Scanner scanner;
 
     MainMenu(StdOut stdOut) {
         this.stdOut = stdOut;
         this.options = new ArrayList<>();
         options.add("1. List of Books");
+        scanner = new Scanner(System.in);
     }
 
-    public void displayOptions() {
+    public void displayOptionsAndAskForOption() {
         options.forEach(option -> stdOut.print(option));
+        stdOut.print("Please select an option: ");
+        int optionSelected = scanner.nextInt();
+        if(optionSelected == 1) {
+            displayBooks();
+        }
     }
 
     private void displayBooks() {

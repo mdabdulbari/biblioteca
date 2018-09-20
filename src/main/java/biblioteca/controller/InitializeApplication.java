@@ -13,6 +13,6 @@ public class InitializeApplication {
 
     public void run() {
         stdOut.print("Welcome to biblioteca");
-        mainMenu.displayOptions();
+        mainMenu.displayOptionsAndAskForOption();
     }
 }
