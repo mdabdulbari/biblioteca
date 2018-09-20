@@ -1,4 +1,4 @@
-package biblioteca.driver;
+package biblioteca.controller;
 
 import biblioteca.view.StdOut;
 

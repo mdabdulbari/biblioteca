@@ -1,6 +1,7 @@
 package biblioteca.models;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Library {
     List<Book> books;
@@ -9,8 +10,7 @@ public class Library {
         this.books = books;
     }
 
-    @Override
-    public String toString() {
-        return books.toString();
+    public List<String> getTitles() {
+        return this.books.stream().map(Book::toString).collect(Collectors.toList());
     }
 }

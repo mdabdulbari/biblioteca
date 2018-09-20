@@ -1,9 +1,16 @@
 package biblioteca.driver;
 
+import biblioteca.Helpers;
+import biblioteca.controller.InitializeApplication;
+import biblioteca.models.Library;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import biblioteca.view.StdOut;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -15,5 +22,17 @@ class BibliotecaTest {
         InitializeApplication initializeApplication = new InitializeApplication(stdOut);
         initializeApplication.run();
         verify(stdOut).print("Welcome to biblioteca");
+    }
+
+    @DisplayName("should return list of books")
+    @Test
+    void shouldReturnListOfBooks() {
+        Helpers helpers = new Helpers();
+        Library library = helpers.createLibraryWithBooks();
+        List<String> bookTitles = new ArrayList<>();
+        bookTitles.add("I Hate");
+        bookTitles.add("Thiss");
+        bookTitles.add("Assignment");
+        assertEquals(bookTitles, library.getTitles());
     }
 }
