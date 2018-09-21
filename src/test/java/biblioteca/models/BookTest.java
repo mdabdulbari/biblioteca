@@ -17,7 +17,7 @@ class BookTest {
     @DisplayName("expect to return all the details when getDetails of GameOfThrones book is called")
     @Test
     void shouldReturnGameOfThronesString() {
-        String expected = "Game Of Thrones      George Martin       1996";
+        String expected = "Game Of Thrones,George Martin,1996";
         assertEquals(expected, gameOfThrones.getDetails());
     }
 }

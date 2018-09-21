@@ -1,6 +1,5 @@
 package biblioteca.models;
 
-import biblioteca.Helpers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,9 +30,9 @@ class LibraryTest {
         library = new Library(books);
 
         bookDetails = new ArrayList<>();
-        bookDetails.add("I Hate      Abdul       2018");
-        bookDetails.add("Thiss      Bari       2018");
-        bookDetails.add("Assignment      Mohammad       2018");
+        bookDetails.add("I Hate,Abdul,2018");
+        bookDetails.add("Thiss,Bari,2018");
+        bookDetails.add("Assignment,Mohammad,2018");
     }
 
     @DisplayName("should return string of three books when toString is called called on a library")

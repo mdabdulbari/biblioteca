@@ -33,10 +33,10 @@ class BibliotecaTest {
     void shouldReturnListOfBooks() {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
-        List<String> bookTitles = new ArrayList<>();
-        bookTitles.add("I Hate      Abdul       2018");
-        bookTitles.add("Thiss      Bari       2018");
-        bookTitles.add("Assignment      Mohammad       2018");
-        assertEquals(bookTitles, library.getBookDetails());
+        List<String> bookDetails = new ArrayList<>();
+        bookDetails.add("I Hate,Abdul,2018");
+        bookDetails.add("Thiss,Bari,2018");
+        bookDetails.add("Assignment,Mohammad,2018");
+        assertEquals(bookDetails, library.getBookDetails());
     }
 }

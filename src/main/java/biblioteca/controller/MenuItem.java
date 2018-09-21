@@ -2,13 +2,27 @@ package biblioteca.controller;
 
 import biblioteca.models.Library;
 import biblioteca.view.StdOut;
+import com.sun.javafx.binding.StringFormatter;
 
 public enum MenuItem {
     LIST_BOOKS("List books") {
         @Override
         void act(Library library, StdOut stdOut) {
             stdOut.print("---Here are all the books in the library---");
-            library.getBookDetails().forEach(stdOut::print);
+            stdOut.print("==============================================================================================");
+            stdOut.print("Book                                                        Author              Year Published");
+            stdOut.print("==============================================================================================");
+            library.getBookDetails().forEach((bookDetails) ->
+                    stdOut.print(formatPrintingOfBook(bookDetails)));
+            stdOut.print("==============================================================================================");
+        }
+
+        private String formatPrintingOfBook(String string) {
+            String[] splitString = string.split(",");
+            splitString[0] = String.format("%-60s",splitString[0]);
+            splitString[1] = String.format("%-20s", splitString[1]);
+            splitString[2] = String.format("%-20s", splitString[2]);
+            return splitString[0] + splitString[1] + splitString[2];
         }
 
         @Override
@@ -19,7 +33,7 @@ public enum MenuItem {
 
     QUIT("Quit") {
         @Override
-        void act(Library library,  StdOut stdOut) {
+        void act(Library library, StdOut stdOut) {
         }
 
         @Override
