@@ -56,4 +56,13 @@ class LibraryTest {
         assertFalse(library.contains(assignment));
         assertTrue(library.isCheckedOut(assignment));
     }
+
+    @DisplayName("should add Assignment book back to the library")
+    @Test
+    void shouldAddABookToTheLibrary() {
+        library.checkout("Assignment");
+        assertFalse(library.contains(assignment));
+        library.returnBook("Assignment");
+        assertTrue(library.contains(assignment));
+    }
 }

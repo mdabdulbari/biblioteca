@@ -25,6 +25,7 @@ public class MainMenu {
         menuItems.add(MenuItem.LIST_BOOKS);
         menuItems.add(MenuItem.QUIT);
         menuItems.add(MenuItem.CHECKOUT);
+        menuItems.add(MenuItem.RETURN);
     }
 
     public void displayOptionsAndAskForOption() {

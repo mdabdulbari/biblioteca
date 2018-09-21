@@ -28,6 +28,17 @@ public class Library {
         return false;
     }
 
+    public boolean returnBook(String bookTitle) {
+        for (Book book : checkedOutBooks) {
+            if (book.getTitle().equals(bookTitle)) {
+                checkedOutBooks.remove(book);
+                books.add(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
     boolean contains(Book book) {
         return books.contains(book);
     }

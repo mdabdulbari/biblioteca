@@ -32,13 +32,13 @@ class MainMenuTest {
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();
         verify(stdOut).print("Welcome to biblioteca");
-        verify(stdOut, times(2)).print("1) List books     2) Quit     3) Checkout     ");
+        verify(stdOut, times(2)).print("1) List books     2) Quit     3) Checkout     4) Return     ");
     }
 
     @DisplayName("should print please Select a valid option when an invalid option is given")
     @Test
     void invalidOption() {
-        when(stdIn.takeInteger()).thenReturn(4).thenReturn(2);
+        when(stdIn.takeInteger()).thenReturn(5).thenReturn(2);
         StdIn stdIn = new StdIn();
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();

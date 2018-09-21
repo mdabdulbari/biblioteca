@@ -56,6 +56,21 @@ public enum MenuItem {
         public String getValue() {
             return "Checkout";
         }
+    }, RETURN("Return") {
+        @Override
+        void act(Library library, StdOut stdOut, StdIn stdIn) {
+            stdOut.print("Please enter the book you want to return: ");
+            String bookReturning = stdIn.takeString();
+            if(!library.returnBook(bookReturning)) {
+                stdOut.print("That is not a valid book to return.");
+            }
+            else stdOut.print("Thank you for returning the book.");
+        }
+
+        @Override
+        public String getValue() {
+            return "Return";
+        }
     };
 
     public String getValue() {
