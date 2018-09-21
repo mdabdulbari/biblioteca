@@ -14,7 +14,7 @@ class MainMenuTest {
     private StdOut stdOut;
     private StdIn stdIn;
     private MainMenu mainMenu;
-    private Library library;g
+    private Library library;
 
     @BeforeEach
     void init() {
