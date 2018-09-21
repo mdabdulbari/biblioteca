@@ -26,18 +26,28 @@ public class MainMenu {
     }
 
     public void displayOptionsAndAskForOption() {
-        AtomicInteger serialNumber = new AtomicInteger(1);
-        menuItems.forEach(menuItem -> {
-                    stdOut.print(serialNumber + ") " + menuItem.getValue());
-                    serialNumber.addAndGet(1);
-                });
-        stdOut.print("Please select an option: ");
-        int optionSelected = stdIn.takeInteger();
+        int optionSelected;
+        do {
+            AtomicInteger serialNumber = new AtomicInteger(1);
+            menuItems.forEach(menuItem -> {
+                stdOut.print(serialNumber + ") " + menuItem.getValue());
+                serialNumber.addAndGet(1);
+            });
+            stdOut.print("Please select an option: ");
+            optionSelected = stdIn.takeInteger();
+            if (!isValid(optionSelected)) {
+                stdOut.print("Please select a valid option!");
+                return;
+            }
+            menuItems.get(optionSelected - 1).act(library, stdOut);
+        } while (optionSelected != 2);
+    }
+
+    private boolean isValid(int optionSelected) {
         if(optionSelected == 0 || optionSelected > menuItems.size()) {
-            stdOut.print("Please select a valid option!");
-            return;
+            return false;
         }
-        menuItems.get(optionSelected - 1).act(library, stdOut);
+        return true;
     }
 }
 

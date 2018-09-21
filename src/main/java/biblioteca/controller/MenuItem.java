@@ -20,7 +20,6 @@ public enum MenuItem {
     QUIT("Quit") {
         @Override
         void act(Library library,  StdOut stdOut) {
-            System.exit(0);
         }
 
         @Override

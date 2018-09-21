@@ -8,15 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class MainMenuTest {
     private StdOut stdOut;
     private StdIn stdIn;
     private MainMenu mainMenu;
-    private Library library;
+    private Library library;g
 
     @BeforeEach
     void init() {
@@ -30,10 +28,10 @@ class MainMenuTest {
     @DisplayName("should display List of Books as an option on the main menu")
     @Test
     void shouldDisplayListOfOptions() {
-        when(stdIn.takeInteger()).thenReturn(1);
+        when(stdIn.takeInteger()).thenReturn(1).thenReturn(2);
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();
-        verify(stdOut).print("1) List books");
+        verify(stdOut, times(2)).print("1) List books");
     }
 
     @DisplayName("should print please Select a valid option when an invalid option is given")
