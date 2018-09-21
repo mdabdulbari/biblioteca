@@ -25,19 +25,20 @@ class MainMenuTest {
         mainMenu = new MainMenu(stdOut, library, stdIn);
     }
 
-    @DisplayName("should display List of Books as an option on the main menu")
+    @DisplayName("should display all the options on the main menu")
     @Test
     void shouldDisplayListOfOptions() {
         when(stdIn.takeInteger()).thenReturn(1).thenReturn(2);
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();
-        verify(stdOut, times(2)).print("1) List books");
+        verify(stdOut).print("Welcome to biblioteca");
+        verify(stdOut, times(2)).print("1) List books     2) Quit     3) Checkout     ");
     }
 
     @DisplayName("should print please Select a valid option when an invalid option is given")
     @Test
     void invalidOption() {
-        when(stdIn.takeInteger()).thenReturn(3);
+        when(stdIn.takeInteger()).thenReturn(4).thenReturn(2);
         StdIn stdIn = new StdIn();
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
         initializeApplication.run();

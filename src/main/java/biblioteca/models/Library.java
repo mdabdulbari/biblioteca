@@ -17,9 +17,15 @@ public class Library {
         return this.books.stream().map(Book::getDetails).collect(Collectors.toList());
     }
 
-    void checkout(Book book) {
-        books.remove(book);
-        checkedOutBooks.add(book);
+    public boolean checkout(String bookTitle) {
+        for (Book book : books) {
+            if (book.getTitle().equals(bookTitle)) {
+                books.remove(book);
+                checkedOutBooks.add(book);
+                return true;
+            }
+        }
+        return false;
     }
 
     boolean contains(Book book) {

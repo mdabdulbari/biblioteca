@@ -12,4 +12,8 @@ public class StdIn {
     public int takeInteger() {
         return scanner.nextInt();
     }
+
+    public String takeString() {
+        return scanner.next();
+    }
 }

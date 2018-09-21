@@ -20,4 +20,11 @@ class BookTest {
         String expected = "Game Of Thrones,George Martin,1996";
         assertEquals(expected, gameOfThrones.getDetails());
     }
+
+    @DisplayName("should return Game Of Thrones for game of thrones book")
+    @Test
+    void shouldReturnTitleOfTheBook() {
+        String expected = "Game Of Thrones";
+        assertEquals(expected, gameOfThrones.getTitle());
+    }
 }

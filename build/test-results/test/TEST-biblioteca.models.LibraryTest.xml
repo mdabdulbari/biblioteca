@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="biblioteca.models.LibraryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-09-21T13:12:41" hostname="in-BariMohammed.local" time="0.003">
+  <properties/>
+  <testcase name="shouldRemoveAbook()" classname="biblioteca.models.LibraryTest" time="0.001"/>
+  <testcase name="shouldRemoveAnotherbook()" classname="biblioteca.models.LibraryTest" time="0.001"/>
+  <testcase name="shouldPrintThreeBooks()" classname="biblioteca.models.LibraryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

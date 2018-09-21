@@ -7,6 +7,7 @@ import biblioteca.view.StdOut;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class MainMenu {
@@ -23,28 +24,35 @@ public class MainMenu {
         menuItems = new ArrayList<>();
         menuItems.add(MenuItem.LIST_BOOKS);
         menuItems.add(MenuItem.QUIT);
+        menuItems.add(MenuItem.CHECKOUT);
     }
 
     public void displayOptionsAndAskForOption() {
         int optionSelected;
         do {
-            AtomicInteger serialNumber = new AtomicInteger(1);
-            menuItems.forEach(menuItem -> {
-                stdOut.print(serialNumber + ") " + menuItem.getValue());
-                serialNumber.addAndGet(1);
-            });
-            stdOut.print("Please select an option: ");
-            optionSelected = stdIn.takeInteger();
+            optionSelected = displayOptionsAndTakeOptionFromTheUser();
             if (!isValid(optionSelected)) {
                 stdOut.print("Please select a valid option!");
-                return;
+            } else {
+                menuItems.get(optionSelected - 1).act(library, stdOut, stdIn);
             }
-            menuItems.get(optionSelected - 1).act(library, stdOut);
         } while (optionSelected != 2);
     }
 
+    private int displayOptionsAndTakeOptionFromTheUser() {
+        AtomicInteger serialNumber = new AtomicInteger(1);
+        AtomicReference<String> options = new AtomicReference<>("");
+        menuItems.forEach(menuItem -> {
+            options.set(options + "" + serialNumber + ") " + menuItem.getValue() + "     ");
+            serialNumber.addAndGet(1);
+        });
+        stdOut.print(options.toString());
+        stdOut.print("Please select an option: ");
+        return stdIn.takeInteger();
+    }
+
     private boolean isValid(int optionSelected) {
-        if(optionSelected == 0 || optionSelected > menuItems.size()) {
+        if (optionSelected == 0 || optionSelected > menuItems.size()) {
             return false;
         }
         return true;

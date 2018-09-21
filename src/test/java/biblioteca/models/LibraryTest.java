@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class gLibraryTest {
+class LibraryTest {
     private Library library;
     private List<String> bookDetails;
     private Book iHate;
@@ -44,7 +44,7 @@ class gLibraryTest {
     @DisplayName("should remove I Hate book from the library")
     @Test
     void shouldRemoveAbook() {
-        library.checkout(iHate);
+        library.checkout("I Hate");
         assertFalse(library.contains(iHate));
         assertTrue(library.isCheckedOut(iHate));
     }
@@ -52,7 +52,7 @@ class gLibraryTest {
     @DisplayName("should remove Assignment book from the library")
     @Test
     void shouldRemoveAnotherbook() {
-        library.checkout(assignment);
+        library.checkout("Assignment");
         assertFalse(library.contains(assignment));
         assertTrue(library.isCheckedOut(assignment));
     }

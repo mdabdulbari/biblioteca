@@ -1,12 +1,13 @@
 package biblioteca.controller;
 
 import biblioteca.models.Library;
+import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
 public enum MenuItem {
     LIST_BOOKS("List books") {
         @Override
-        void act(Library library, StdOut stdOut) {
+        void act(Library library, StdOut stdOut, StdIn stdIn) {
             stdOut.print("---Here are all the books in the library---");
             stdOut.print("==============================================================================================");
             stdOut.print("Book                                                        Author              Year Published");
@@ -18,7 +19,7 @@ public enum MenuItem {
 
         private String formatPrintingOfBook(String string) {
             String[] splitString = string.split(",");
-            splitString[0] = String.format("%-60s",splitString[0]);
+            splitString[0] = String.format("%-60s", splitString[0]);
             splitString[1] = String.format("%-20s", splitString[1]);
             splitString[2] = String.format("%-4s", splitString[2]);
             return splitString[0] + splitString[1] + splitString[2];
@@ -32,12 +33,27 @@ public enum MenuItem {
 
     QUIT("Quit") {
         @Override
-        void act(Library library, StdOut stdOut) {
+        void act(Library library, StdOut stdOut, StdIn stdIn) {
         }
 
         @Override
         public String getValue() {
             return "Quit";
+        }
+    }, CHECKOUT("Checkout") {
+        @Override
+        void act(Library library, StdOut stdOut, StdIn stdIn) {
+            MenuItem.LIST_BOOKS.act(library, stdOut, stdIn);
+            stdOut.print("Please enter the book you want: ");
+            String bookSelected = stdIn.takeString();
+            if(!library.checkout(bookSelected)) {
+            }
+            else stdOut.print("Thank you! Enjoy the book");
+        }
+
+        @Override
+        public String getValue() {
+            return "Checkout";
         }
     };
 
@@ -45,7 +61,7 @@ public enum MenuItem {
         return null;
     }
 
-    abstract void act(Library library, StdOut stdOut);
+    abstract void act(Library library, StdOut stdOut, StdIn stdIn);
 
     private final String displayName;
 

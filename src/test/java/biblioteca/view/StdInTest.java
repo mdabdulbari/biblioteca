@@ -26,6 +26,14 @@ class StdInTest {
         assertEquals(2, stdIn.takeInteger());
     }
 
+    @DisplayName("expect takeString function to return Hi when it is called")
+    @Test
+    void shouldReturnHi() {
+        setSystemIn("Hi\n");
+        StdIn stdIn = new StdIn();
+        assertEquals("Hi", stdIn.takeString());
+    }
+
     private void setSystemIn(String string) {
         System.setIn(new ByteArrayInputStream(string.getBytes()));
     }
