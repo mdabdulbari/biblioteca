@@ -1,45 +1,43 @@
 package biblioteca.controller;
 
-import biblioteca.Helpers;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class MainMenu {
-    private List<String> options;
     private StdOut stdOut;
+    private Library library;
     private StdIn stdIn;
+    private List<MenuItem> menuItems;
 
 
-    MainMenu(StdOut stdOut, StdIn stdIn) {
+    MainMenu(StdOut stdOut, Library library, StdIn stdIn) {
         this.stdOut = stdOut;
+        this.library = library;
         this.stdIn = stdIn;
-        this.options = new ArrayList<>();
-        options.add("1. List of Books");
+        menuItems = new ArrayList<>();
+        menuItems.add(MenuItem.LIST_BOOKS);
+        menuItems.add(MenuItem.QUIT);
     }
 
     public void displayOptionsAndAskForOption() {
-        options.forEach(option -> stdOut.print(option));
+        AtomicInteger serialNumber = new AtomicInteger(1);
+        menuItems.forEach(menuItem -> {
+                    stdOut.print(serialNumber + ") " + menuItem.getValue());
+                    serialNumber.addAndGet(1);
+                });
         stdOut.print("Please select an option: ");
         int optionSelected = stdIn.takeInteger();
-        if (optionSelected == 1) {
-            displayBooks();
+        if(optionSelected == 0 || optionSelected > menuItems.size()) {
+            stdOut.print("Please select a valid option!");
             return;
         }
-        stdOut.print("Select a valid option!");
-    }
-
-    private void displayBooks() {
-        stdOut.print("---Here are all the books in the library---");
-        stdOut.print("Book      Author      Year Published");
-        stdOut.print("------------------------------------");
-        Helpers helpers = new Helpers();
-        Library library = helpers.createLibraryWithBooks();
-        List<String> bookTitles = library.getBookDetails();
-        bookTitles.forEach(book -> stdOut.print(book));
+        menuItems.get(optionSelected - 1).act(library, stdOut);
     }
 }
 

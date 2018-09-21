@@ -3,6 +3,8 @@ package biblioteca.controller;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
+import static org.mockito.Mockito.*;
+
 public class InitializeApplication {
     private StdOut stdOut;
     private MainMenu mainMenu;
