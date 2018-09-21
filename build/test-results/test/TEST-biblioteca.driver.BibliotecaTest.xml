@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="biblioteca.driver.BibliotecaTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-09-21T13:12:41" hostname="in-BariMohammed.local" time="0.005">
+<testsuite name="biblioteca.driver.BibliotecaTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-09-21T16:41:57" hostname="in-BariMohammed.local" time="0.005">
   <properties/>
   <testcase name="shouldPrintWelcomeMessage()" classname="biblioteca.driver.BibliotecaTest" time="0.004"/>
   <testcase name="shouldReturnListOfBooks()" classname="biblioteca.driver.BibliotecaTest" time="0.001"/>

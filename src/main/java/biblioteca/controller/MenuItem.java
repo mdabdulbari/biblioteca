@@ -47,6 +47,7 @@ public enum MenuItem {
             stdOut.print("Please enter the book you want: ");
             String bookSelected = stdIn.takeString();
             if(!library.checkout(bookSelected)) {
+                stdOut.print("That book is not available.");
             }
             else stdOut.print("Thank you! Enjoy the book");
         }
