@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibraryTest {
+class gLibraryTest {
     private Library library;
     private List<String> bookDetails;
     private Book iHate;

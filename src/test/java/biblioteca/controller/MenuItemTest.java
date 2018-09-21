@@ -31,8 +31,8 @@ class MenuItemTest {
         StdOut stdOut = mock(StdOut.class);
         MenuItem.LIST_BOOKS.act(library, stdOut);
         verify(stdOut).print("---Here are all the books in the library---");
-        verify(stdOut).print("I Hate                                                      Abdul               2018                ");
-        verify(stdOut).print("Thiss                                                       Bari                2018                ");
-        verify(stdOut).print("Assignment                                                  Mohammad            2018                ");
+        verify(stdOut).print("I Hate                                                      Abdul               2018");
+        verify(stdOut).print("Thiss                                                       Bari                2018");
+        verify(stdOut).print("Assignment                                                  Mohammad            2018");
     }
 }

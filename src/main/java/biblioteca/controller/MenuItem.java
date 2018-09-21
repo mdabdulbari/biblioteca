@@ -2,7 +2,6 @@ package biblioteca.controller;
 
 import biblioteca.models.Library;
 import biblioteca.view.StdOut;
-import com.sun.javafx.binding.StringFormatter;
 
 public enum MenuItem {
     LIST_BOOKS("List books") {
@@ -21,7 +20,7 @@ public enum MenuItem {
             String[] splitString = string.split(",");
             splitString[0] = String.format("%-60s",splitString[0]);
             splitString[1] = String.format("%-20s", splitString[1]);
-            splitString[2] = String.format("%-20s", splitString[2]);
+            splitString[2] = String.format("%-4s", splitString[2]);
             return splitString[0] + splitString[1] + splitString[2];
         }
 

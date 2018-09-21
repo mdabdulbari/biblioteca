@@ -34,5 +34,4 @@ class StdInTest {
     void setup() {
         System.setIn(System.in);
     }
-
 }
