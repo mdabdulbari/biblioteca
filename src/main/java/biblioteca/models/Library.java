@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 public class Library {
     private List<LibraryItem> libraryItems;
     private List<LibraryItem> checkedOutItems;
+    private List<User> users;
 
-    public Library(List<LibraryItem> libraryItems) {
+    public Library(List<LibraryItem> libraryItems, List<User> users) {
         this.libraryItems = libraryItems;
+        this.users = users;
         checkedOutItems = new ArrayList<>();
     }
 

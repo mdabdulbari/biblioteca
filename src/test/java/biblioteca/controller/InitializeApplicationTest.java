@@ -1,6 +1,6 @@
 package biblioteca.controller;
 
-import biblioteca.Helpers;
+import biblioteca.common.Helpers;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;

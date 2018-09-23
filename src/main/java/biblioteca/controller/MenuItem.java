@@ -23,6 +23,9 @@ public enum MenuItem {
     },
 
     LIST_MOVIES("List Movies", new ListCommand(ItemType.MOVIE)) {
+    },
+
+    LOGIN("Login", new LoginCommand(ItemType.BOOK)); {
     };
 
     public String getValue() {

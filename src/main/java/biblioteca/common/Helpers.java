@@ -1,10 +1,6 @@
-package biblioteca;
+package biblioteca.common;
 
-import biblioteca.models.Library;
-
-import biblioteca.models.Book;
-import biblioteca.models.LibraryItem;
-import biblioteca.models.Movie;
+import biblioteca.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +23,15 @@ public class Helpers {
         libraryItems.add(shawshank);
         libraryItems.add(incredibles);
 
-        return new Library(libraryItems);
+        return new Library(libraryItems, users());
+    }
+
+    private List<User> users() {
+        List<User> users = new ArrayList<>();
+        User user1 = new User("111-1111", "asdfasdf");
+        User user2 = new User("222-2222", "asdfasdfasdf");
+        users.add(user1);
+        users.add(user2);
+        return users;
     }
 }

@@ -1,6 +1,6 @@
 package biblioteca.controller;
 
-import biblioteca.Helpers;
+import biblioteca.common.Helpers;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
@@ -33,13 +33,13 @@ class MainMenuTest {
         initializeApplication.run();
         verify(stdOut).print("Welcome to biblioteca");
         verify(stdOut, times(2))
-                .print("1) List books     2) List Movies     3) Checkout     4) Return     5) Quit     ");
+                .print("1) List books     2) List Movies     3) Checkout     4) Return     5) Login     6) Quit     ");
     }
 
     @DisplayName("should print please Select a valid option when an invalid option is given")
     @Test
     void invalidOption() {
-        when(stdIn.takeInteger()).thenReturn(6).thenReturn(5);
+        when(stdIn.takeInteger()).thenReturn(7).thenReturn(5);
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
         initializeApplication.run();
         verify(stdOut).print("Please select a valid option!");

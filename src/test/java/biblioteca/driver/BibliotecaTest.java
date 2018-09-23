@@ -1,6 +1,6 @@
 package biblioteca.driver;
 
-import biblioteca.Helpers;
+import biblioteca.common.Helpers;
 import biblioteca.controller.InitializeApplication;
 import biblioteca.controller.MainMenu;
 import biblioteca.models.ItemType;

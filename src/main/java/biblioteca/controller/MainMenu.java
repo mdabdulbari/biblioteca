@@ -25,6 +25,7 @@ public class MainMenu {
         menuItems.add(MenuItem.LIST_MOVIES);
         menuItems.add(MenuItem.CHECKOUT_BOOK);
         menuItems.add(MenuItem.RETURN);
+        menuItems.add(MenuItem.LOGIN);
         menuItems.add(MenuItem.QUIT);
     }
 

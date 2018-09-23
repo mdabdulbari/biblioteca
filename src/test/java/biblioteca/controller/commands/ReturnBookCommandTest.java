@@ -35,7 +35,7 @@ class ReturnBookCommandTest {
         libraryItems.add(book1);
         libraryItems.add(book2);
 
-        library = new Library(libraryItems);
+        library = new Library(libraryItems, new ArrayList<>());
         returnBookCommand = new ReturnBookCommand();
 
         stdOut = mock(StdOut.class);

@@ -1,6 +1,6 @@
 package biblioteca.controller.commands;
 
-import biblioteca.Helpers;
+import biblioteca.common.Helpers;
 import biblioteca.controller.MenuItem;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
@@ -24,5 +24,4 @@ class ListCommandTest {
         verify(stdOut).print("I Hate                                                      Abdul                         2018                          ");
         verify(stdOut).print("Thiss                                                       Bari                          2018                          ");
     }
-
 }

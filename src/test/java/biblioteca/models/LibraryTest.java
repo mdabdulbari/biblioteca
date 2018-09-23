@@ -34,7 +34,7 @@ class LibraryTest {
         libraryItems.add(thiss);
         libraryItems.add(assignment);
 
-        library = new Library(libraryItems);
+        library = new Library(libraryItems, new ArrayList<>());
     }
 
     @DisplayName("should return string of three books when toString is called called on a library")
