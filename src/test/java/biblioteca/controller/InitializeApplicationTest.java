@@ -27,13 +27,13 @@ class InitializeApplicationTest {
         Library library = helpers.createLibraryWithBooks();
 
         MainMenu mainMenu = new MainMenu(stdOut, library, stdIn);
-        initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
+        initializeApplication = new InitializeApplication(stdOut, mainMenu);
     }
 
     @DisplayName("should print welcome to biblioteca when run is called")
     @Test
     void shouldPrintWelcomeMessage() {
-        when(stdIn.takeInteger()).thenReturn(1).thenReturn(2);
+        when(stdIn.takeInteger()).thenReturn(1).thenReturn(5);
         initializeApplication.run();
         verify(stdOut).print("Welcome to biblioteca");
     }
@@ -41,7 +41,7 @@ class InitializeApplicationTest {
     @DisplayName("should call displayOptionsAndAskForOption method when run method is called on initialize application")
     @Test
     void shouldCallDisplayOptionsMethod() {
-        when(stdIn.takeInteger()).thenReturn(1).thenReturn(2);
+        when(stdIn.takeInteger()).thenReturn(1).thenReturn(5);
         initializeApplication.run();
         verify(stdOut).print("Welcome to biblioteca");
     }

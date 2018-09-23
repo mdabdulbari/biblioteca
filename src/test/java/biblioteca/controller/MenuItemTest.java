@@ -23,24 +23,24 @@ class MenuItemTest {
         assertEquals("Quit", MenuItem.QUIT.getValue());
     }
 
-    @DisplayName("should return Quit when getter is called on CHECKOUT enum")
+    @DisplayName("should return Quit when getter is called on CHECKOUT_BOOK enum")
     @Test
     void shouldReturnCheckout() {
-        assertEquals("Checkout", MenuItem.CHECKOUT.getValue());
+        assertEquals("Checkout", MenuItem.CHECKOUT_BOOK.getValue());
     }
 
-    @DisplayName("should print list of books when act method is called on LIST_BOOKS enum")
+    @DisplayName("should print perform of books when perform method is called on LIST_BOOKS enum")
     @Test
     void shouldPrintListOfBooks() {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibraryWithBooks();
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
-        MenuItem.LIST_BOOKS.act(library, stdOut, stdIn);
-        verify(stdOut).print("---Here are all the books in the library---");
-        verify(stdOut).print("I Hate                                                      Abdul               2018");
-        verify(stdOut).print("Thiss                                                       Bari                2018");
-        verify(stdOut).print("Assignment                                                  Mohammad            2018");
+        MenuItem.LIST_BOOKS.perform(library, stdOut, stdIn);
+        verify(stdOut).print("------------------------Here is the list of all the books in the library----------------------");
+        verify(stdOut).print("I Hate                                                      Abdul                         2018                          ");
+        verify(stdOut).print("Thiss                                                       Bari                          2018                          ");
+        verify(stdOut).print("Assignment                                                  Mohammad                      2018                          ");
     }
 
     @DisplayName("should print Thank you message on successful checkout")
@@ -51,7 +51,7 @@ class MenuItemTest {
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
         when(stdIn.takeString()).thenReturn("Thiss");
-        MenuItem.CHECKOUT.act(library, stdOut, stdIn);
-        verify(stdOut).print("Thank you! Enjoy the book");
+        MenuItem.CHECKOUT_BOOK.perform(library, stdOut, stdIn);
+        verify(stdOut).print("Thank you! Enjoy");
     }
 }

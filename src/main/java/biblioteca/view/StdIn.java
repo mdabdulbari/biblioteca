@@ -10,10 +10,10 @@ public class StdIn {
     }
 
     public int takeInteger() {
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public String takeString() {
-        return scanner.next();
+        return scanner.nextLine();
     }
 }

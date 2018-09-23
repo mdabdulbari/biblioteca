@@ -1,6 +1,7 @@
-package biblioteca.controller;
+package biblioteca;
 
-import biblioteca.Helpers;
+import biblioteca.controller.InitializeApplication;
+import biblioteca.controller.MainMenu;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
@@ -13,7 +14,7 @@ public class BibliotecaApplication {
         Library library = helpers.createLibraryWithBooks();
 
         MainMenu mainMenu = new MainMenu(stdOut, library, stdIn);
-        InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu, stdIn);
+        InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
         initializeApplication.run();
     }
 }

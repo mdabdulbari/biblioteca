@@ -1,87 +1,43 @@
 package biblioteca.controller;
 
+import biblioteca.controller.commands.*;
+import biblioteca.models.ItemType;
 import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
 public enum MenuItem {
-    LIST_BOOKS("List books") {
-        @Override
-        void act(Library library, StdOut stdOut, StdIn stdIn) {
-            stdOut.print("---Here are all the books in the library---");
-            stdOut.print("==============================================================================================");
-            stdOut.print("Book                                                        Author              Year Published");
-            stdOut.print("==============================================================================================");
-            library.getBookDetails().forEach((bookDetails) ->
-                    stdOut.print(formatPrintingOfBook(bookDetails)));
-            stdOut.print("==============================================================================================");
-        }
+    LIST_BOOKS("List books", new ListCommand(ItemType.BOOK)) {
+    },
 
-        private String formatPrintingOfBook(String string) {
-            String[] splitString = string.split(",");
-            splitString[0] = String.format("%-60s", splitString[0]);
-            splitString[1] = String.format("%-20s", splitString[1]);
-            splitString[2] = String.format("%-4s", splitString[2]);
-            return splitString[0] + splitString[1] + splitString[2];
-        }
-
+    QUIT("Quit", null) {
         @Override
-        public String getValue() {
-            return "List books";
+        public void perform(Library library, StdOut stdOut, StdIn stdIn) {
         }
     },
 
-    QUIT("Quit") {
-        @Override
-        void act(Library library, StdOut stdOut, StdIn stdIn) {
-        }
+    CHECKOUT_BOOK("Checkout", new CheckoutBookCommand()) {
+    },
 
-        @Override
-        public String getValue() {
-            return "Quit";
-        }
-    }, CHECKOUT("Checkout") {
-        @Override
-        void act(Library library, StdOut stdOut, StdIn stdIn) {
-            MenuItem.LIST_BOOKS.act(library, stdOut, stdIn);
-            stdOut.print("Please enter the book you want: ");
-            String bookSelected = stdIn.takeString();
-            if(!library.checkout(bookSelected)) {
-                stdOut.print("That book is not available.");
-            }
-            else stdOut.print("Thank you! Enjoy the book");
-        }
+    RETURN("Return", new ReturnBookCommand()) {
+    },
 
-        @Override
-        public String getValue() {
-            return "Checkout";
-        }
-    }, RETURN("Return") {
-        @Override
-        void act(Library library, StdOut stdOut, StdIn stdIn) {
-            stdOut.print("Please enter the book you want to return: ");
-            String bookReturning = stdIn.takeString();
-            if(!library.returnBook(bookReturning)) {
-                stdOut.print("That is not a valid book to return.");
-            }
-            else stdOut.print("Thank you for returning the book.");
-        }
-
-        @Override
-        public String getValue() {
-            return "Return";
-        }
+    LIST_MOVIES("List Movies", new ListCommand(ItemType.MOVIE)) {
     };
 
     public String getValue() {
-        return null;
+        return displayName;
     }
 
-    abstract void act(Library library, StdOut stdOut, StdIn stdIn);
+    public void perform(Library library, StdOut stdOut, StdIn stdIn) {
+        command.perform(library, stdOut, stdIn);
+    }
 
     private final String displayName;
+    protected Command command;
 
-    MenuItem(String displayName) {
+    MenuItem(String displayName, Command command) {
         this.displayName = displayName;
+        this.command = command;
     }
 }

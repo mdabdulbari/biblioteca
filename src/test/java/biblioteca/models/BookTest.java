@@ -27,4 +27,10 @@ class BookTest {
         String expected = "Game Of Thrones";
         assertEquals(expected, gameOfThrones.getTitle());
     }
+
+    @DisplayName("should return ItemType as book")
+    @Test
+    void shouldReturnItemTypeBook() {
+        assertEquals(ItemType.BOOK, gameOfThrones.getType());
+    }
 }

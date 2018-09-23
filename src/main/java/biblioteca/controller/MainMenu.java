@@ -16,16 +16,16 @@ public class MainMenu {
     private StdIn stdIn;
     private List<MenuItem> menuItems;
 
-
-    MainMenu(StdOut stdOut, Library library, StdIn stdIn) {
+    public MainMenu(StdOut stdOut, Library library, StdIn stdIn) {
         this.stdOut = stdOut;
         this.library = library;
         this.stdIn = stdIn;
         menuItems = new ArrayList<>();
         menuItems.add(MenuItem.LIST_BOOKS);
-        menuItems.add(MenuItem.QUIT);
-        menuItems.add(MenuItem.CHECKOUT);
+        menuItems.add(MenuItem.LIST_MOVIES);
+        menuItems.add(MenuItem.CHECKOUT_BOOK);
         menuItems.add(MenuItem.RETURN);
+        menuItems.add(MenuItem.QUIT);
     }
 
     public void displayOptionsAndAskForOption() {
@@ -35,9 +35,9 @@ public class MainMenu {
             if (!isValid(optionSelected)) {
                 stdOut.print("Please select a valid option!");
             } else {
-                menuItems.get(optionSelected - 1).act(library, stdOut, stdIn);
+                menuItems.get(optionSelected - 1).perform(library, stdOut, stdIn);
             }
-        } while (optionSelected != 2);
+        } while (optionSelected != 5);
     }
 
     private int displayOptionsAndTakeOptionFromTheUser() {
@@ -59,13 +59,3 @@ public class MainMenu {
         return true;
     }
 }
-
-
-
-
-
-
-
-
-
-

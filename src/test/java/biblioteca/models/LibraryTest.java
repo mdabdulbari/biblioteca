@@ -18,27 +18,29 @@ class LibraryTest {
 
     @BeforeEach
     void init() {
-        List<Book> books = new ArrayList<>();
-
         iHate = new Book("I Hate", "Abdul", 2018);
         thiss = new Book("Thiss", "Bari", 2018);
         assignment = new Book("Assignment", "Mohammad", 2018);
-
-        books.add(iHate);
-        books.add(thiss);
-        books.add(assignment);
-        library = new Library(books);
 
         bookDetails = new ArrayList<>();
         bookDetails.add("I Hate,Abdul,2018");
         bookDetails.add("Thiss,Bari,2018");
         bookDetails.add("Assignment,Mohammad,2018");
+
+
+        List<LibraryItem> libraryItems = new ArrayList<>();
+
+        libraryItems.add(iHate);
+        libraryItems.add(thiss);
+        libraryItems.add(assignment);
+
+        library = new Library(libraryItems);
     }
 
     @DisplayName("should return string of three books when toString is called called on a library")
     @Test
     void shouldPrintThreeBooks() {
-        assertEquals(bookDetails, library.getBookDetails());
+        assertEquals(bookDetails, library.getList(ItemType.BOOK));
     }
 
     @DisplayName("should remove I Hate book from the library")
@@ -62,7 +64,7 @@ class LibraryTest {
     void shouldAddABookToTheLibrary() {
         library.checkout("Assignment");
         assertFalse(library.contains(assignment));
-        library.returnBook("Assignment");
+        library.returnLibraryItem("Assignment");
         assertTrue(library.contains(assignment));
     }
 }

@@ -21,4 +21,16 @@ class MovieTest {
         String expected = "The Shawshank Redemption,1994,Frank Darabont,9.3";
         assertEquals(expected, movie.getDetails());
     }
+
+    @DisplayName("should return The Shawshank Redemption")
+    @Test
+    void shouldReturnName() {
+        assertEquals("The Shawshank Redemption", movie.getTitle());
+    }
+
+    @DisplayName("should return ItemType as Movie")
+    @Test
+    void shouldReturnItemTypeMovie() {
+        assertEquals(ItemType.MOVIE, movie.getType());
+    }
 }
