@@ -95,4 +95,12 @@ class LibraryTest {
         library.authenticate("123-4567", "asdf");
         assertEquals(user1, library.getCurrentUser());
     }
+
+    @DisplayName("should change the current user to null when the user logs out")
+    @Test
+    void shouldLogOutTheUser() {
+        library.authenticate("123-4567", "asdf");
+        library.logout();
+        assertFalse(library.isLoggedIn());
+    }
 }

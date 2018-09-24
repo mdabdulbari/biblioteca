@@ -29,6 +29,9 @@ public enum MenuItem {
     },
 
     DISPLAY_DETAILS("My Details", new DisplayDetailsCommand(), OptionVisibility.LOGGED_IN) {
+    },
+
+    LOG_OUT("Log Out", new LogOutCommand(), OptionVisibility.LOGGED_IN) {
     };
 
     public String getValue() {

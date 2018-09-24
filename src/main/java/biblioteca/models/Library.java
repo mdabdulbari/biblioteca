@@ -64,8 +64,12 @@ public class Library {
         return false;
     }
 
-    public boolean loggedIn() {
+    public boolean isLoggedIn() {
         return !(currentUser == null);
+    }
+
+    public void logout() {
+        currentUser = null;
     }
 
     public User getCurrentUser() {

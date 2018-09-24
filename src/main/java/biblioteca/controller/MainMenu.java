@@ -26,6 +26,7 @@ public class MainMenu {
         menuItems.add(MenuItem.CHECKOUT_BOOK);
         menuItems.add(MenuItem.RETURN);
         menuItems.add(MenuItem.DISPLAY_DETAILS);
+        menuItems.add(MenuItem.LOG_OUT);
     }
 
     public void displayOptionsAndAskForOption() {
@@ -36,7 +37,7 @@ public class MainMenu {
             if (!isValid(optionSelected)) {
                 stdOut.print("Please select a valid option!");
             } else {
-                if(library.loggedIn()){
+                if(library.isLoggedIn()){
                     if(optionSelected == 0) {
                         return;
                     }
@@ -55,7 +56,7 @@ public class MainMenu {
     }
 
     private int displayOptionsAndTakeOptionFromTheUser() {
-        String options = (library.loggedIn())?generateOptionsForUserLoggedIn()
+        String options = (library.isLoggedIn())?generateOptionsForUserLoggedIn()
                 :generateOptionsForUserNotLoggedIn();
         stdOut.print(options);
         stdOut.print("Please select an option: ");
@@ -100,8 +101,8 @@ public class MainMenu {
     }
 
     private boolean isValid(int optionSelected) {
-        if(library.loggedIn()){
-            if (optionSelected > 5) {
+        if(library.isLoggedIn()){
+            if (optionSelected > 6) {
                 return false;
             }
             return true;

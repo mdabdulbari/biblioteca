@@ -51,7 +51,7 @@ class MainMenuTest {
         when(stdIn.takeInteger()).thenReturn(1).thenReturn(0);
         when(stdIn.takeString()).thenReturn("111-1111").thenReturn("asdfasdf");
         mainMenu.displayOptionsAndAskForOption();
-        verify(stdOut)
-                .print("0) Quit     1) List books     2) List Movies     3) Checkout     4) Return     5) My Details     ");
+        verify(stdOut)g
+                .print("0) Quit     1) List books     2) List Movies     3) Checkout     4) Return     5) My Details     6) Log Out     ");
     }
 }
