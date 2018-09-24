@@ -48,6 +48,7 @@ class MenuItemTest {
     void shouldPrintThankYouMessage() {
         Helpers helpers = new Helpers();
         Library library = helpers.createLibrary();
+        library.authenticate("111-1111", "asdfasdf");
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
         when(stdIn.takeString()).thenReturn("Thiss");

@@ -1,9 +1,7 @@
 package biblioteca.controller.commands;
 
 import biblioteca.controller.MenuItem;
-import biblioteca.models.Book;
-import biblioteca.models.Library;
-import biblioteca.models.LibraryItem;
+import biblioteca.models.*;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +23,8 @@ class ReturnBookCommandTest {
     private ReturnBookCommand returnBookCommand;
     private StdOut stdOut;
     private StdIn stdIn;
+    private ArrayList<User> users;
+    private User user1;
 
     @BeforeEach
     void init() {
@@ -35,7 +35,12 @@ class ReturnBookCommandTest {
         libraryItems.add(book1);
         libraryItems.add(book2);
 
-        library = new Library(libraryItems, new ArrayList<>());
+        UserInformation userInformation = mock(UserInformation.class);
+        users = new ArrayList<>();
+        user1 = new User("111-1111", "asdfasdf", userInformation);
+        users.add(user1);
+
+        library = new Library(libraryItems, users);
         returnBookCommand = new ReturnBookCommand();
 
         stdOut = mock(StdOut.class);
@@ -45,6 +50,7 @@ class ReturnBookCommandTest {
     @DisplayName("a returned book should be added to the books in library")
     @Test
     void shouldAddReturnedBookInTheLibrary() {
+        library.authenticate("111-1111", "asdfasdf");
         library.checkout("book1");
         when(stdIn.takeString()).thenReturn("book1");
         MenuItem.RETURN.perform(library, stdOut, stdIn);
@@ -54,6 +60,7 @@ class ReturnBookCommandTest {
     @DisplayName("should display successful return message")
     @Test
     void shouldReturnSuccessfulReturnMessage() {
+        library.authenticate("111-1111", "asdfasdf");
         library.checkout("book1");
         when(stdIn.takeString()).thenReturn("book1");
         MenuItem.RETURN.perform(library, stdOut, stdIn);
@@ -63,6 +70,7 @@ class ReturnBookCommandTest {
     @DisplayName("should display unsuccessful return message")
     @Test
     void shouldReturnUnSuccessfulReturnMessage() {
+        library.authenticate("111-1111", "asdfasdf");
         library.checkout("book1");
         when(stdIn.takeString()).thenReturn("book123");
         MenuItem.RETURN.perform(library, stdOut, stdIn);

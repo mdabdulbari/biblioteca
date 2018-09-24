@@ -52,6 +52,7 @@ class LibraryTest {
     @DisplayName("should remove I Hate book from the library")
     @Test
     void shouldRemoveAbook() {
+        library.authenticate("123-4567", "asdf");
         library.checkout("I Hate");
         assertFalse(library.contains(iHate));
         assertTrue(library.isCheckedOut(iHate));
@@ -60,6 +61,7 @@ class LibraryTest {
     @DisplayName("should remove Assignment book from the library")
     @Test
     void shouldRemoveAnotherbook() {
+        library.authenticate("123-4567", "asdf");
         library.checkout("Assignment");
         assertFalse(library.contains(assignment));
         assertTrue(library.isCheckedOut(assignment));
@@ -68,6 +70,7 @@ class LibraryTest {
     @DisplayName("should add Assignment book back to the library")
     @Test
     void shouldAddABookToTheLibrary() {
+        library.authenticate("123-4567", "asdf");
         library.checkout("Assignment");
         assertFalse(library.contains(assignment));
         library.returnLibraryItem("Assignment");

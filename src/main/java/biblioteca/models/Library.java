@@ -21,6 +21,7 @@ public class Library {
             if (libraryItem.getTitle().equals(libraryItemTitle)) {
                 libraryItems.remove(libraryItem);
                 checkedOutItems.add(libraryItem);
+                currentUser.checkoutItem(libraryItem);
                 return true;
             }
         }
@@ -32,6 +33,7 @@ public class Library {
             if (libraryItem.getTitle().equals(libraryItemTitle)) {
                 checkedOutItems.remove(libraryItem);
                 libraryItems.add(libraryItem);
+                currentUser.returnItem(libraryItem);
                 return true;
             }
         }
