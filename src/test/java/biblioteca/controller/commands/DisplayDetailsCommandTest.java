@@ -22,6 +22,8 @@ class DisplayDetailsCommandTest {
         DisplayDetailsCommand displayDetailsCommand = new DisplayDetailsCommand();
         library.authenticate("111-1111", "asdfasdf");
         displayDetailsCommand.perform(library, stdOut, stdIn);
+        verify(stdOut, times(2))
+                .print("--------------------------------------");
         verify(stdOut).print("Name: asdf");
         verify(stdOut).print("Email: asdf@gmail.com");
         verify(stdOut).print("Contact Number: 1234123412");
