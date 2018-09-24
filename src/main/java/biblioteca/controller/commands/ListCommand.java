@@ -14,7 +14,7 @@ public class ListCommand implements Command {
 
     @Override
     public void perform(Library library, StdOut stdOut, StdIn stdIn) {
-        if(itemType == ItemType.BOOK) {
+        if (itemType == ItemType.BOOK) {
             headingForPrintingBooks(stdOut);
         } else {
             headingForPrintingMovies(stdOut);
@@ -27,7 +27,7 @@ public class ListCommand implements Command {
         String[] splitString = string.split(",");
         String formattedString = "";
         formattedString = String.format("%-60s", splitString[0]);
-        for(int i = 1; i < splitString.length; i += 1) {
+        for (int i = 1; i < splitString.length; i += 1) {
             formattedString += String.format("%-30s", splitString[i]);
         }
         return formattedString;

@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public class Helpers {
-    public Library createLibraryWithBooks() {
+    public Library createLibrary() {
         List<LibraryItem> libraryItems = new ArrayList<>();
 
         Book iHate = new Book("I Hate", "Abdul", 2018);

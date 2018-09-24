@@ -33,7 +33,7 @@ class MenuItemTest {
     @Test
     void shouldPrintListOfBooks() {
         Helpers helpers = new Helpers();
-        Library library = helpers.createLibraryWithBooks();
+        Library library = helpers.createLibrary();
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
         MenuItem.LIST_BOOKS.perform(library, stdOut, stdIn);
@@ -47,7 +47,7 @@ class MenuItemTest {
     @Test
     void shouldPrintThankYouMessage() {
         Helpers helpers = new Helpers();
-        Library library = helpers.createLibraryWithBooks();
+        Library library = helpers.createLibrary();
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
         when(stdIn.takeString()).thenReturn("Thiss");

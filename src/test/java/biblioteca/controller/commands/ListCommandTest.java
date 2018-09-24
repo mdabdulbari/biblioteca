@@ -16,12 +16,25 @@ class ListCommandTest {
     @Test
     void shouldPrintListOfBooks() {
         Helpers helpers = new Helpers();
-        Library library = helpers.createLibraryWithBooks();
+        Library library = helpers.createLibrary();
         StdOut stdOut = mock(StdOut.class);
         StdIn stdIn = mock(StdIn.class);
         MenuItem.LIST_BOOKS.perform(library, stdOut, stdIn);
         verify(stdOut).print("------------------------Here is the list of all the books in the library----------------------");
         verify(stdOut).print("I Hate                                                      Abdul                         2018                          ");
         verify(stdOut).print("Thiss                                                       Bari                          2018                          ");
+    }
+
+    @DisplayName("should print list of movies")
+    @Test
+    void shouldPrintListOfMovies() {
+        Helpers helpers = new Helpers();
+        Library library = helpers.createLibrary();
+        StdOut stdOut = mock(StdOut.class);
+        StdIn stdIn = mock(StdIn.class);
+        MenuItem.LIST_MOVIES.perform(library, stdOut, stdIn);
+        verify(stdOut).print("--------------------------------------------Here are all the movies in the library--------------------------------------------");
+        verify(stdOut).print("The Shawshank Redemption                                    1994                          Frank Darabont                9.3                           ");
+        verify(stdOut).print("The Incredibles                                             1994                          Frank Darabont                9.3                           ");
     }
 }

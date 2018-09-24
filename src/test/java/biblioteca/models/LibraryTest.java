@@ -15,6 +15,8 @@ class LibraryTest {
     private Book iHate;
     private Book thiss;
     private Book assignment;
+    private User user1;
+    private User user2;
 
     @BeforeEach
     void init() {
@@ -27,14 +29,18 @@ class LibraryTest {
         bookDetails.add("Thiss,Bari,2018");
         bookDetails.add("Assignment,Mohammad,2018");
 
-
         List<LibraryItem> libraryItems = new ArrayList<>();
-
         libraryItems.add(iHate);
         libraryItems.add(thiss);
         libraryItems.add(assignment);
 
-        library = new Library(libraryItems, new ArrayList<>());
+        List<User> users = new ArrayList<>();
+        user1 = new User("123-4567", "asdf");
+        user2 = new User("123-4568", "asdfasdf");
+        users.add(user1);
+        users.add(user2);
+
+        library = new Library(libraryItems, users);
     }
 
     @DisplayName("should return string of three books when toString is called called on a library")
@@ -66,5 +72,17 @@ class LibraryTest {
         assertFalse(library.contains(assignment));
         library.returnLibraryItem("Assignment");
         assertTrue(library.contains(assignment));
+    }
+
+    @DisplayName("should return true for a correct credentials")
+    @Test
+    void shouldReturnTrueForCorrectDetails() {
+        assertTrue(library.authenticate("123-4567", "asdf"));
+    }
+
+    @DisplayName("should return false for a incorrect credentials")
+    @Test
+    void shouldReturnFalseForInCorrectDetails() {
+        assertFalse(library.authenticate("123-4567", "asdfasdf"));
     }
 }

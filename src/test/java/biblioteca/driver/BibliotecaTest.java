@@ -31,7 +31,7 @@ class BibliotecaTest {
     @Test
     void shouldReturnListOfBooks() {
         Helpers helpers = new Helpers();
-        Library library = helpers.createLibraryWithBooks();
+        Library library = helpers.createLibrary();
         List<String> bookDetails = new ArrayList<>();
         bookDetails.add("I Hate,Abdul,2018");
         bookDetails.add("Thiss,Bari,2018");

@@ -8,6 +8,7 @@ public class Library {
     private List<LibraryItem> libraryItems;
     private List<LibraryItem> checkedOutItems;
     private List<User> users;
+    private User currentUser = null;
 
     public Library(List<LibraryItem> libraryItems, List<User> users) {
         this.libraryItems = libraryItems;
@@ -49,5 +50,19 @@ public class Library {
 
     boolean isCheckedOut(LibraryItem libraryItem) {
         return checkedOutItems.contains(libraryItem);
+    }
+
+    public boolean authenticate(String libraryNumber, String password) {
+        for (User user : users) {
+            if (user.authenticate(libraryNumber, password)) {
+                currentUser = user;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean loggedIn() {
+        return !(currentUser == null);
     }
 }
