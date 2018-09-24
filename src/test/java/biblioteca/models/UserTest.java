@@ -36,4 +36,31 @@ class UserTest {
         user.getInformation();
         verify(userInformation).getDetails();
     }
+
+    @DisplayName("should add a item to checkout items when a user checkouts a book")
+    @Test
+    void shouldAddItemToCheckedOutItems() {
+        LibraryItem libraryItem = mock(LibraryItem.class);
+        User user = new User("111-1112", "asdf", null);
+        user.checkoutItem(libraryItem);
+        assertTrue(user.hasItem(libraryItem));
+    }
+
+    @DisplayName("checkout items not contain item which isn't checkout")
+    @Test
+    void shouldNotContainItemWhichIsNotCheckedOut() {
+        LibraryItem libraryItem = mock(LibraryItem.class);
+        User user = new User("111-1112", "asdf", null);
+        assertFalse(user.hasItem(libraryItem));
+    }
+
+    @DisplayName("should remove a returned item from checked out items")
+    @Test
+    void shouoldRemoveReturnedItemFromCheckedOutItems() {
+        LibraryItem libraryItem = mock(LibraryItem.class);
+        User user = new User("111-1112", "asdf", null);
+        user.checkoutItem(libraryItem);
+        user.returnItem(libraryItem);
+        assertFalse(user.hasItem(libraryItem));
+    }
 }
