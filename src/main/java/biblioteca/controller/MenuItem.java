@@ -16,10 +16,10 @@ public enum MenuItem {
         }
     },
 
-    CHECKOUT_BOOK("Checkout", new CheckoutBookCommand(), OptionVisibility.LOGGED_IN) {
+    CHECKOUT_BOOK("Checkout", new CheckoutItemCommand(), OptionVisibility.LOGGED_IN) {
     },
 
-    RETURN("Return", new ReturnBookCommand(), OptionVisibility.LOGGED_IN) {
+    RETURN("Return", new ReturnItemCommand(), OptionVisibility.LOGGED_IN) {
     },
 
     LIST_MOVIES("List Movies", new ListCommand(ItemType.MOVIE), OptionVisibility.ALWAYS) {

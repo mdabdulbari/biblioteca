@@ -4,7 +4,7 @@ import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
-public class ReturnBookCommand implements Command {
+public class ReturnItemCommand implements Command {
     @Override
     public void perform(Library library, StdOut stdOut, StdIn stdIn) {
         stdOut.print("Please enter the item you want to return: ");

@@ -16,11 +16,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class ReturnBookCommandTest {
+class ReturnItemCommandTest {
     private Library library;
     private Book book1;
     private Book book2;
-    private ReturnBookCommand returnBookCommand;
+    private ReturnItemCommand returnItemCommand;
     private StdOut stdOut;
     private StdIn stdIn;
     private ArrayList<User> users;
@@ -41,7 +41,7 @@ class ReturnBookCommandTest {
         users.add(user1);
 
         library = new Library(libraryItems, users);
-        returnBookCommand = new ReturnBookCommand();
+        returnItemCommand = new ReturnItemCommand();
 
         stdOut = mock(StdOut.class);
         stdIn = mock(StdIn.class);

@@ -4,7 +4,7 @@ import biblioteca.models.Library;
 import biblioteca.view.StdIn;
 import biblioteca.view.StdOut;
 
-public class CheckoutBookCommand implements Command {
+public class CheckoutItemCommand implements Command {
     @Override
     public void perform(Library library, StdOut stdOut, StdIn stdIn) {
         stdOut.print("Please enter the book or movie you want: ");
