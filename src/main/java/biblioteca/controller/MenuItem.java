@@ -41,9 +41,15 @@ public enum MenuItem {
 
     private final String displayName;
     protected Command command;
+    private OptionVisibility status;
 
-    MenuItem(String displayName, Command command, OptionVisibility always) {
+    MenuItem(String displayName, Command command, OptionVisibility status) {
         this.displayName = displayName;
         this.command = command;
+        this.status = status;
+    }
+
+    public OptionVisibility getStatus() {
+        return status;
     }
 }
