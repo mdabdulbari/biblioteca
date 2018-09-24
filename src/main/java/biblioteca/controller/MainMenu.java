@@ -57,27 +57,32 @@ public class MainMenu {
     }
 
     private int displayOptionsAndTakeOptionFromTheUser() {
-        AtomicInteger serialNumber = new AtomicInteger(1);
-        AtomicReference<String> options = new AtomicReference<>("");
+        int serialNumber = 1;
+        String options = "";
         if(library.loggedIn()) {
-            menuItemsForLoggedInUser.forEach(menuItem -> {
-                options.set(options + "" + serialNumber + ") " + menuItem.getValue() + "     ");
-                serialNumber.addAndGet(1);
-            });
+            for (MenuItem menuItem : menuItemsForLoggedInUser) {
+                options += "" + serialNumber + ") " + menuItem.getValue() + "     ";
+                serialNumber += 1;
+            }
         }
         else {
-            menuItemsForUserNotLoggedIn.forEach(menuItem -> {
-                options.set(options + "" + serialNumber + ") " + menuItem.getValue() + "     ");
-                serialNumber.addAndGet(1);
-            });
+            for (MenuItem menuItem : menuItemsForUserNotLoggedIn) {
+                options += "" + serialNumber + ") " + menuItem.getValue() + "     ";
+                serialNumber += 1;
+            }
         }
-        stdOut.print(options.toString());
+        stdOut.print(options);
         stdOut.print("Please select an option: ");
         return stdIn.takeInteger();
     }
 
     private boolean isValid(int optionSelected) {
-        if (optionSelected == 0 || optionSelected > menuItemsForLoggedInUser.size()) {
+        if(library.loggedIn()){
+            if (optionSelected == 0 || optionSelected > menuItemsForLoggedInUser.size()) {
+                return false;
+            }
+        }
+        if (optionSelected == 0 || optionSelected > menuItemsForUserNotLoggedIn.size()) {
             return false;
         }
         return true;
