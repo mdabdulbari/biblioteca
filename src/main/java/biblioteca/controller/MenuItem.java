@@ -26,6 +26,9 @@ public enum MenuItem {
     },
 
     LOGIN("Login", new LoginCommand()) {
+    },
+
+    DISPLAY_DETAILS("My Details", new DisplayDetailsCommand()) {
     };
 
     public String getValue() {

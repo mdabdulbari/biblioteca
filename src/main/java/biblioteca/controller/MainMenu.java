@@ -27,6 +27,7 @@ public class MainMenu {
         menuItemsForLoggedInUser.add(MenuItem.LIST_MOVIES);
         menuItemsForLoggedInUser.add(MenuItem.CHECKOUT_BOOK);
         menuItemsForLoggedInUser.add(MenuItem.RETURN);
+        menuItemsForLoggedInUser.add(MenuItem.DISPLAY_DETAILS);
         menuItemsForLoggedInUser.add(MenuItem.QUIT);
         menuItemsForUserNotLoggedIn.add(MenuItem.LOGIN);
         menuItemsForUserNotLoggedIn.add(MenuItem.LIST_BOOKS);
@@ -52,7 +53,7 @@ public class MainMenu {
     }
 
     private boolean doesNotWantToQuit(int optionSelected) {
-        return optionSelected != 5 && !(optionSelected == 4 && !library.loggedIn());
+        return optionSelected != 6 && !(optionSelected == 4 && !library.loggedIn());
     }
 
     private int displayOptionsAndTakeOptionFromTheUser() {

@@ -24,7 +24,7 @@ class LoginCommandTest {
         List<User> users = new ArrayList<>();
         stdOut = mock(StdOut.class);
         stdIn = mock(StdIn.class);
-        User user1 = new User("123-4567", "12346");
+        User user1 = new User("123-4567", "12346", null);
         users.add(user1);
 
         library = new Library(new ArrayList<>(), users);

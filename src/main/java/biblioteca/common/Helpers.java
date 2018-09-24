@@ -28,8 +28,9 @@ public class Helpers {
 
     private List<User> users() {
         List<User> users = new ArrayList<>();
-        User user1 = new User("111-1111", "asdfasdf");
-        User user2 = new User("222-2222", "asdfasdfasdf");
+        UserInformation userInformation = new UserInformation("asdf", "asdf@gmail.com", 1234123412);
+        User user1 = new User("111-1111", "asdfasdf", userInformation);
+        User user2 = new User("222-2222", "asdfasdfasdf", userInformation);
         users.add(user1);
         users.add(user2);
         return users;

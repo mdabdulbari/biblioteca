@@ -65,4 +65,8 @@ public class Library {
     public boolean loggedIn() {
         return !(currentUser == null);
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 }

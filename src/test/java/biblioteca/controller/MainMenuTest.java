@@ -25,7 +25,7 @@ class MainMenuTest {
         mainMenu = new MainMenu(stdOut, library, stdIn);
     }
 
-    @DisplayName("should display all the options on the main menu")
+    @DisplayName("should display the options for user not logged in on the main menu")
     @Test
     void shouldDisplayListOfOptions() {
         when(stdIn.takeInteger()).thenReturn(2).thenReturn(4);
@@ -43,5 +43,15 @@ class MainMenuTest {
         InitializeApplication initializeApplication = new InitializeApplication(stdOut, mainMenu);
         initializeApplication.run();
         verify(stdOut).print("Please select a valid option!");
+    }
+
+    @DisplayName("should display options for logged in user")
+    @Test
+    void shouldDisplayOptionsForLoggedInUser() {
+        when(stdIn.takeInteger()).thenReturn(1).thenReturn(6);
+        when(stdIn.takeString()).thenReturn("111-1111").thenReturn("asdfasdf");
+        mainMenu.displayOptionsAndAskForOption();
+        verify(stdOut)
+                .print("1) List books     2) List Movies     3) Checkout     4) Return     5) My Details     6) Quit     ");
     }
 }

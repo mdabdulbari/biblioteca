@@ -35,8 +35,8 @@ class LibraryTest {
         libraryItems.add(assignment);
 
         List<User> users = new ArrayList<>();
-        user1 = new User("123-4567", "asdf");
-        user2 = new User("123-4568", "asdfasdf");
+        user1 = new User("123-4567", "asdf", null);
+        user2 = new User("123-4568", "asdfasdf", null);
         users.add(user1);
         users.add(user2);
 
@@ -84,5 +84,12 @@ class LibraryTest {
     @Test
     void shouldReturnFalseForInCorrectDetails() {
         assertFalse(library.authenticate("123-4567", "asdfasdf"));
+    }
+
+    @DisplayName("should return current user")
+    @Test
+    void shouldReturnCurrentUser() {
+        library.authenticate("123-4567", "asdf");
+        assertEquals(user1, library.getCurrentUser());
     }
 }
